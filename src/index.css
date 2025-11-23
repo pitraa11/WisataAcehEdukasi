@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
+
+    --primary: 207 90% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 174 62% 47%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 14 100% 63%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 207 90% 54%;
+
+    --radius: 0.75rem;
+
+    /* Tourism-specific colors */
+    --ocean: 207 90% 54%;
+    --teal: 174 62% 47%;
+    --sunset: 14 100% 63%;
+    --forest: 160 84% 39%;
+    --sand: 43 74% 66%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(207 90% 54% / 0.95), hsl(174 62% 47% / 0.95));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 6px -1px hsl(207 90% 54% / 0.1), 0 2px 4px -1px hsl(207 90% 54% / 0.06);
+    --shadow-elevated: 0 20px 25px -5px hsl(207 90% 54% / 0.15), 0 10px 10px -5px hsl(207 90% 54% / 0.08);
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 207 90% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 207 90% 54%;
+  }
+
+  .dark {
+    --background: 220 20% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 18% 16%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 18% 16%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 207 90% 61%;
+    --primary-foreground: 220 20% 12%;
+
+    --secondary: 174 62% 54%;
+    --secondary-foreground: 220 20% 12%;
+
+    --muted: 220 18% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 14 100% 68%;
+    --accent-foreground: 220 20% 12%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 18% 24%;
+    --input: 220 18% 24%;
+    --ring: 207 90% 61%;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 207 90% 61%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 207 90% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+}
+
+/* Lightbox popup mode */
+.yarl__slide {
+  max-width: 70% !important;
+  max-height: 70% !important;
+  margin: auto !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.yarl__container {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+.yarl__slide_image {
+  object-fit: contain !important;
+  border-radius: 12px;
+}
+
+.yarl__button {
+  font-size: 22px !important;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoom {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade {
+  animation: fade 0.2s ease;
+}
+
+.animate-zoom {
+  animation: zoom 0.2s ease;
+}
+
+.animate-zoom-in {
+  animation: zoom 0.2s ease;
+}
