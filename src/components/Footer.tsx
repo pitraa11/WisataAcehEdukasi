@@ -1,77 +1,111 @@
-import { Compass, Mail, Phone, MapPin } from "lucide-react";
+import { Compass } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
     <footer className="bg-card border-t mt-20">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* GRID 3 KOLOM */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Compass className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-primary">Wisata Edukasi Aceh</span>
-            </div>
-            <p className="text-muted-foreground">
-              Temukan pengalaman belajar yang tak terlupakan di Aceh
-            </p>
-          </div>
+          <Link
+            to="/"
+            state={{ scrollTo: "top" }}
+            className="flex items-center space-x-2"
+          >
+            <Compass className="h-8 w-8 text-primary" />
+            <span className="text-xl font-bold text-primary">
+              Wisata Edukasi Aceh
+            </span>
+          </Link>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4 text-foreground">Tautan Cepat</h3>
+            <h3 className="font-semibold mb-4 text-foreground">Menu Utama</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/"
+                  state={{ scrollTo: "top" }}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Beranda
                 </Link>
               </li>
+
               <li>
-                <a href="#destinations" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/"
+                  state={{ scrollTo: "destinations" }}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Destinasi
-                </a>
+                </Link>
               </li>
+
               <li>
-                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/"
+                  state={{ scrollTo: "about" }}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Tentang Kami
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Destinations */}
+          {/* Popular Destinations */}
           <div>
-            <h3 className="font-semibold mb-4 text-foreground">Destinasi Populer</h3>
+            <h3 className="font-semibold mb-4 text-foreground">
+              Destinasi Populer
+            </h3>
             <ul className="space-y-2">
-              <li className="text-muted-foreground">Museum Tsunami</li>
-              <li className="text-muted-foreground">Taman Rusa Sibreh</li>
-              <li className="text-muted-foreground">Hutan Mangrove Langsa</li>
-              <li className="text-muted-foreground">Kebun Kopi Gayo</li>
-            </ul>
-          </div>
+              <li>
+                <Link
+                  to="/destination/4"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Museum Tsunami
+                </Link>
+              </li>
 
-          {/* Contact */}
-          <div>
-            <h3 className="font-semibold mb-4 text-foreground">Kontak</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center text-muted-foreground">
-                <Mail className="h-4 w-4 mr-2" />
-                info@wisataaceh.com
+              <li>
+                <Link
+                  to="/destination/1"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Taman Rusa Sibreh
+                </Link>
               </li>
-              <li className="flex items-center text-muted-foreground">
-                <Phone className="h-4 w-4 mr-2" />
-                +62 812-3456-7890
+
+              <li>
+                <Link
+                  to="/destination/3"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Hutan Mangrove Langsa
+                </Link>
               </li>
-              <li className="flex items-start text-muted-foreground">
-                <MapPin className="h-4 w-4 mr-2 mt-1" />
-                Banda Aceh, Aceh, Indonesia
+
+              <li>
+                <Link
+                  to="/destination/6"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Kebun Kopi Gayo
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
+        {/* Footer Bottom */}
         <div className="border-t mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Wisata Edukasi Aceh. Semua hak dilindungi.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Wisata Edukasi Aceh. Semua hak
+            dilindungi.
+          </p>
         </div>
       </div>
     </footer>

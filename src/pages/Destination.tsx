@@ -3,6 +3,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -122,10 +123,6 @@ const destinationsData: Record<string, any> = {
       "Menyimpan koleksi budaya, pakaian adat, dan rumah tradisional Aceh. Cocok untuk mengenal sejarah dan adat istiadat daerah.",
     gambar_url:
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/a7/a8/fb/museum-negeri-aceh.jpg?w=1200&h=-1&s=1",
-    gallery: [
-      "https://museum.acehprov.go.id/thumbnail/700x0/media/2025.11/dapur22.jpeg",
-      "https://museum.acehprov.go.id/thumbnail/700x0/media/2025.11/img_20251114_2030551.jpg",
-    ],
     jam_buka: "08:00",
     jam_tutup: "17:00",
     pengetahuan: {
@@ -167,6 +164,10 @@ const destinationsData: Record<string, any> = {
 export default function Destination() {
   const { id } = useParams();
   const destination = destinationsData[id || "1"] || destinationsData["1"];
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [id]);
 
   // 🟩 Perbaikan glob
   const allGalleries = import.meta.glob("/src/img/gallery/*/*", {
@@ -427,28 +428,6 @@ export default function Destination() {
               </Card>
             )}
 
-            {/* Contact Info */}
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Informasi Kontak</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex items-center space-x-4 p-4 bg-muted rounded-lg">
-                    <Phone className="h-6 w-6 text-primary" />
-                    <div>
-                      <p className="font-semibold">Telepon</p>
-                      <p className="text-foreground/70">+62 812-3456-7890</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4 p-4 bg-muted rounded-lg">
-                    <Mail className="h-6 w-6 text-primary" />
-                    <div>
-                      <p className="font-semibold">Email</p>
-                      <p className="text-foreground/70">info@wisataaceh.com</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </main>
